@@ -8,8 +8,9 @@ var con = mysql.createConnection({
   database: "emusklan_mahajodi"
 });
 
-con.connect(function(err) {
-  if (err) throw err;
+  this.con.on('error', function (err) {
+            console.log('caught this error: ' + err.toString());
+        });
   console.log("Connected!");
 });
 
