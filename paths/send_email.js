@@ -46,7 +46,7 @@ router.get('/send_email',function(req,res,next)
            
             to: email,
             subject: req.body.subject,
-            text: req.body.text,
+            text:req.body.body_part+"\r\n"+"regards:"+"\r\n"+"mahajodi team"+"\r\n"+"Thank you",
           };
           
           transporter.sendMail(mailOptions, function(error, info){
