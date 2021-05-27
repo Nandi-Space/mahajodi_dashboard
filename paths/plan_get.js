@@ -3,7 +3,7 @@ const router =express.Router();
 const Auth= require("../middleware/authencation");
 const isAuthorized = require("../middleware/authorization");
 const db=require('../mysql/dbconnect');
-router.get('/plan_get',function(req,res,next){
+router.get('/plan_get',Auth,isAuthorized,function(req,res,next){
     var sql="SELECT * from tbl_plan";
     db.query(sql,function(err,data,fields)
     {
@@ -26,5 +26,3 @@ router.get('/plan_get',function(req,res,next){
        }
     });
 });
-module.exports=router;
-
