@@ -9,6 +9,8 @@ const be_safe_online=require('./paths/be_safe_online');
 const admin_login=require('./paths/admin_login');
 const user_data =require('./paths/user_detail');
 const plan_data=require('./paths/plan_get');
+const send_email=require('./paths/send_email');
+
 
 
 
@@ -30,6 +32,8 @@ app.use('/subscription',be_safe_online);
 app.use('/auth',admin_login);
 app.use('/get_data',user_data);
 app.use('/plan',plan_data);
+app.use('/email',send_email);
+
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
