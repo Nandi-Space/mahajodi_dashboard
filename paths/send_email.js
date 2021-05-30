@@ -3,7 +3,7 @@ const router =express.Router();
 const db=require('../mysql/dbconnect');
 const nodemailer = require('nodemailer');
 const { response } = require('express');
-router.get('/send_email',function(req,res,next)
+router.post('/send_email',function(req,res,next)
 {
    console.log(req.body.user_id)
    db.query('SELECT email from tbl_user where id=?',
