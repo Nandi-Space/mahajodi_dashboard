@@ -7,7 +7,7 @@ const isAuthorized = require("../middleware/authorization");
 const authencation = require('../middleware/authencation');
 router.get('/user',function(req,res,next){
     
-    var sql="SELECT tbl_user.username,detail_profile.country,detail_profile.date_of_subscription,tbl_plan.plan_type from tbl_user JOIN  detail_profile on tbl_user.id=detail_profile.user_id JOIN tbl_plan on detail_profile.plan_id=tbl_plan.id";
+    var sql="SELECT tbl_user.username,detail_profile.country,detail_profile.date_of_subscription,tbl_plan.plan_type ,tbl_plan.duration,from tbl_user JOIN  detail_profile on tbl_user.id=detail_profile.user_id JOIN tbl_plan on detail_profile.plan_id=tbl_plan.id";
     db.query(sql,function(err,data,fields)
     {
        if(err)
