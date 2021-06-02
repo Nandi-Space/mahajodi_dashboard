@@ -1,6 +1,7 @@
 const express =require('express');
 const router =express.Router();
 const Auth= require("../middleware/authencation");
+const db=require('../mysql/dbconnect');
 router.get('/get_country',function(req,res,next){
     var sql="SELECT DISTINCT country from detail_profile";
     db.query(sql,function(err,data,fields)
