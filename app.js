@@ -10,6 +10,8 @@ const admin_login=require('./paths/admin_login');
 const user_data =require('./paths/user_detail');
 const plan_data=require('./paths/plan_get');
 const send_email=require('./paths/send_email');
+const get_country=require('./paths/get_country');
+
 
 
 
@@ -33,6 +35,7 @@ app.use('/auth',admin_login);
 app.use('/get_data',user_data);
 app.use('/plan',plan_data);
 app.use('/email',send_email);
+app.use('/country',get_country);
 
 
 app.use((req, res, next) => {
