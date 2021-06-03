@@ -11,6 +11,7 @@ const user_data =require('./paths/user_detail');
 const plan_data=require('./paths/plan_get');
 const send_email=require('./paths/send_email');
 const get_country=require('./paths/get_country');
+const get_transcation=require('./paths/transcation');
 
 
 
@@ -36,6 +37,7 @@ app.use('/get_data',user_data);
 app.use('/plan',plan_data);
 app.use('/email',send_email);
 app.use('/country',get_country);
+app.use('/total',get_transcation);
 
 
 app.use((req, res, next) => {

@@ -27,4 +27,33 @@ router.get('/plan_get',function(req,res,next){
     });
 });
 
+
+router.post('/user_plan',function(req,res,next){
+  var sql=("SELECT * from detail_profile where id=?",[
+    req.body.id,
+  ]);
+  db.query(sql,function(err,data,fields)
+  {
+     if(err)
+     {
+      return res.status(400).json({
+          status:"failed",
+          message:"to get user data", 
+          data:error
+        });
+     }
+     else{
+         
+      return res.status(200).json({
+          status:"success",
+          message:"to get user data", 
+          data:data
+        });
+
+     }
+  });
+});
+
+
+
 module.exports=router;
