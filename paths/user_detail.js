@@ -33,6 +33,7 @@ router.get('/user',function(req,res,next){
 router.patch('/insert',function(req,res,next)
 {
    console.log(req.body.plan_id)
+    console.log(req.body.user_id)
    db.query('update detail_profile set plan_id=?,date_of_subscription=? where user_id=?',
     [
       
