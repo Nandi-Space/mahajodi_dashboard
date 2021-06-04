@@ -34,7 +34,7 @@ router.patch('/insert',function(req,res,next)
 {
 
 
-   var sql=("select id from detail profile where user_id=?",[req.body.user_id]);
+   var sql=("select id from detail_profile where user_id=?",[req.body.user_id]);
    db.query(sql,function(err,data,fields)
    {
       if(err)
