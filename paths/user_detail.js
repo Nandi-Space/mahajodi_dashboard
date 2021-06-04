@@ -32,36 +32,59 @@ router.get('/user',function(req,res,next){
 
 router.patch('/insert',function(req,res,next)
 {
-   console.log(req.body.plan_id)
-   db.query('update detail_profile set plan_id=?,date_of_subscription=? where user_id=?',
-    [
-      
-       req.body.plan_id,
-     current_date,
-       req.body.user_id,
-    ] ,
-    
-   function(err,data,fields)
-    {
-       if(err)
-       {
-        return res.status(400).json({
-            status:"failed",
-            message:"subscription adding ", 
-            error:err,
-            
-          });
-       }
-       else{
-           
-        return res.status(200).json({
-            status:"success",
-            message:"subscription adding", 
-                      
-          });
 
-       }
-    });
+
+   var sql=("select id from detail profile where user_id=?",[req.body.user_id]);
+   db.query(sql,function(err,data,fields)
+   {
+      if(err)
+      {
+       return res.status(400).json({
+           status:"failed",
+           message:"no data found", 
+           data:error
+         });
+      }
+      else{
+          
+
+         console.log(req.body.plan_id)
+         db.query('update detail_profile set plan_id=?,date_of_subscription=? where user_id=?',
+          [
+            
+             req.body.plan_id,
+           current_date,
+             req.body.user_id,
+          ] ,
+          
+         function(err,data,fields)
+          {
+             if(err)
+             {
+              return res.status(400).json({
+                  status:"failed",
+                  message:"subscription adding ", 
+                  error:err,
+                  
+                });
+             }
+             else{
+                 
+              return res.status(200).json({
+                  status:"success",
+                  message:"subscription adding", 
+                            
+                });
+      
+             }
+          });
+       
+
+      }
+   });
+
+
+  
 
     
 });
